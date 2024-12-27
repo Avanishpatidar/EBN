@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-background text-text-primary antialiased;
+  }
+
+  body {
+    @apply font-sans;
+  }
+
+  code {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .container-padding {
+    @apply px-container lg:px-container-lg;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-text-primary to-text-secondary;
+  }
+}
