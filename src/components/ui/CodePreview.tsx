@@ -1,4 +1,3 @@
-import { cn } from '../../utils/cn'
 import { useEffect, useState } from 'react'
 
 interface CodePreviewProps {
@@ -7,7 +6,7 @@ interface CodePreviewProps {
   language: string
 }
 
-export function CodePreview({ title, code, language }: CodePreviewProps) {
+export function CodePreview({ title, code }: CodePreviewProps) {
   const [displayedCode, setDisplayedCode] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
 

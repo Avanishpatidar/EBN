@@ -58,7 +58,7 @@ export function Header() {
                   <div className="flex flex-col">
                     <span className="text-2xl font-orbitron font-black tracking-wider">
                       <span className="bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent">
-                        ERROR
+                        ERROR BY
                       </span>
                       <span className="relative ml-2 text-blue-400 group-hover:text-white transition-colors duration-300">
                         <span className="absolute -inset-1 bg-blue-500/20 blur-sm rounded-lg group-hover:bg-blue-500/30 transition-all duration-300" />
