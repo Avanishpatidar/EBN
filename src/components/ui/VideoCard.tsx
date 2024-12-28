@@ -3,22 +3,22 @@ import { useState } from 'react'
 
 interface VideoCardProps {
   title: string
-  description: string
   duration: string
   thumbnail: string
   url: string
-  category: string
-  date: string
+  // date: string
+  views: string
+  likes: string
 }
 
 export function VideoCard({
   title,
-  description,
   duration,
   thumbnail,
   url,
-  category,
-  date,
+  // date,
+  views,
+  likes,
 }: VideoCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
@@ -27,8 +27,8 @@ export function VideoCard({
       href={url}
       className="group relative flex flex-col overflow-hidden rounded-lg bg-primary/5 transition-all hover:-translate-y-1 hover:bg-primary/10"
     >
-      {/* Thumbnail */}
-      <div className="aspect-video w-full overflow-hidden">
+      {/* Thumbnail with Duration */}
+      <div className="aspect-video w-full overflow-hidden relative">
         <img
           src={thumbnail}
           alt={title}
@@ -38,31 +38,35 @@ export function VideoCard({
             !imageLoaded && 'blur-sm'
           )}
         />
-        <div className="absolute bottom-2 right-2 rounded bg-background/80 px-2 py-1 text-xs font-medium backdrop-blur-sm">
+        <div className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-1 text-xs font-medium text-white">
           {duration}
         </div>
       </div>
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-4">
-        <div className="mb-2 text-xs font-medium text-text-secondary">
-          {new Date(date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
+        {/* Title and Stats */}
+        <div className="mb-2 flex flex-col space-y-1">
+          <h3 className="text-lg font-semibold text-text-primary line-clamp-2">
+            {title}
+          </h3>
+          <div className="flex items-center space-x-2 text-sm text-text-secondary">
+            <span>{views} views</span>
+            <span>•</span>
+            <span>{likes} likes</span>
+          </div>
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-text-primary line-clamp-2">
-          {title}
-        </h3>
-        <p className="mb-4 text-sm text-text-secondary line-clamp-2">
-          {description}
-        </p>
-        <div className="mt-auto">
-          <span className="inline-flex items-center rounded-full bg-primary/20 px-2.5 py-0.5 text-xs font-medium text-text-primary">
-            {category}
+
+        {/* Footer */}
+        {/* <div className="mt-auto flex items-center justify-between">
+          <span className="text-xs text-text-secondary">
+            {new Date(date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+            })}
           </span>
-        </div>
+        </div> */}
       </div>
     </a>
   )

@@ -5,7 +5,7 @@ import { useState } from 'react'
 export function Newsletter() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [error, _setError] = useState<string | null>(null)
+  const [error, _setError ] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

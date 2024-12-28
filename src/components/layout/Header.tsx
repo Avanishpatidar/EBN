@@ -50,23 +50,19 @@ export function Header() {
               )}
             >
               <nav className="flex items-center justify-between h-16 px-6 sm:h-16 sm:px-8">
-                {/* Updated Logo */}
+                {/* Updated Logo with Animation */}
                 <a 
                   href="/" 
                   className="group relative"
                 >
                   <div className="flex flex-col">
                     <span className="text-2xl font-orbitron font-black tracking-wider">
-                      <span className="bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent">
-                        ERROR BY
-                      </span>
-                      <span className="relative ml-2 text-blue-400 group-hover:text-white transition-colors duration-300">
-                        <span className="absolute -inset-1 bg-blue-500/20 blur-sm rounded-lg group-hover:bg-blue-500/30 transition-all duration-300" />
-                        <span className="relative">NIGHT</span>
+                      <span className="error-by-night-text">
+                        ERROR BY NIGHT
                       </span>
                     </span>
                     <span className="text-[10px] font-orbitron tracking-[0.3em] text-blue-400/70 group-hover:text-blue-400 transition-colors pl-1">
-                      CODING • TUTORIALS • PROJECTS
+                      CODING • BLOGS • PROJECTS
                     </span>
                   </div>
                 </a>
