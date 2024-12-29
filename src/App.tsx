@@ -7,23 +7,27 @@ import { FeaturedVideos } from './components/home/FeaturedVideos'
 import { Projects } from './components/home/Projects'
 import { About } from './components/home/About'
 import { Newsletter } from './components/home/Newsletter'
-import { initMouseGlow } from './utils/mouseGlow'
+import { CodeCursor } from './components/ui/CodeCursor'
 
 function App() {
   useEffect(() => {
-    initMouseGlow()
+    // Ensure cursor is hidden on initial load
+    document.body.style.cursor = 'none'
   }, [])
 
   return (
-    <Layout>
-      <Hero />
-      <Stats />
-      <FeaturedVideos />
-      <TechStack />
-      <Projects />
-      <About />
-      <Newsletter />
-    </Layout>
+    <>
+      <CodeCursor />
+      <Layout>
+        <Hero />
+        <Stats />
+        <FeaturedVideos />
+        <TechStack />
+        <Projects />
+        <About />
+        <Newsletter />
+      </Layout>
+    </>
   )
 }
 

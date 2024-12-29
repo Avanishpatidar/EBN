@@ -5,14 +5,29 @@
 @layer base {
   html {
     @apply bg-background text-text-primary antialiased;
+    cursor: none !important;
   }
 
   body {
     @apply font-sans;
+    cursor: none !important;
   }
 
   code {
     @apply font-mono;
+  }
+
+  a, button, [role="button"] {
+    cursor: none !important;
+  }
+
+  * {
+    cursor: none !important;
+  }
+
+  /* Add hover effect for interactive elements */
+  a:hover, button:hover, [role="button"]:hover {
+    @apply opacity-80 transition-opacity;
   }
 }
 
@@ -26,4 +41,50 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-text-primary to-text-secondary;
   }
+  
+  .cursor-none {
+    cursor: none !important;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+.cursor-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Cursor animations */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.cursor-rotate {
+  animation: rotate 8s linear infinite;
+}
+
+.cursor-pulse {
+  animation: pulse 2s ease-in-out infinite;
 }
