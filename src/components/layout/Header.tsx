@@ -1,3 +1,4 @@
+// components/Header.tsx
 import { useState, useEffect } from 'react'
 import { Container } from '../ui/Container'
 import { Button } from '../ui/Button'
@@ -28,7 +29,6 @@ export function Header() {
       <Container className="relative px-4">
         <div className="py-4">
           <div className="relative">
-            {/* Enhanced glowing line */}
             <div className="absolute -inset-[2px] rounded-xl overflow-hidden">
               <div 
                 className="absolute h-[3px] w-[20%] top-0 left-0 bg-blue-400/80 blur-[3px] animate-border-line"
@@ -38,7 +38,6 @@ export function Header() {
               />
             </div>
             
-            {/* Header content */}
             <header
               className={cn(
                 'relative rounded-xl pointer-events-auto',
@@ -50,7 +49,6 @@ export function Header() {
               )}
             >
               <nav className="flex items-center justify-between h-16 px-6 sm:h-16 sm:px-8">
-                {/* Updated Logo with Animation */}
                 <a 
                   href="/" 
                   className="group relative"
@@ -67,7 +65,6 @@ export function Header() {
                   </div>
                 </a>
 
-                {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center space-x-8">
                   {NAVIGATION_ITEMS.map((item) => (
                     <a
@@ -93,7 +90,6 @@ export function Header() {
                   </Button>
                 </div>
 
-                {/* Mobile Menu Button */}
                 <button
                   className="md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -111,7 +107,6 @@ export function Header() {
                 </button>
               </nav>
 
-              {/* Mobile Navigation */}
               {isMobileMenuOpen && (
                 <div className="md:hidden py-4 px-6 sm:px-8 border-t border-white/[0.08]">
                   <div className="flex flex-col space-y-4">
@@ -142,3 +137,4 @@ export function Header() {
     </div>
   )
 }
+  
