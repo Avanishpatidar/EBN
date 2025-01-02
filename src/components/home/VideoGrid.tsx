@@ -2,6 +2,7 @@ import { Container } from '../ui/Container'
 import { VideoCard } from '../ui/VideoCard'
 import { SectionHeader } from '../ui/SectionHeader'
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
 interface Video {
   id: string
@@ -20,6 +21,14 @@ interface VideoGridProps {
   limit?: number
   channelId: string
 }
+
+const COLORS = [
+  "from-blue-400 to-blue-600",
+  "from-purple-400 to-purple-600",
+  "from-green-400 to-green-600",
+  "from-red-400 to-red-600",
+  "from-yellow-400 to-yellow-600",
+];
 
 export function VideoGrid({ limit, channelId }: VideoGridProps) {
   const [videos, setVideos] = useState<Video[]>([])
@@ -56,6 +65,27 @@ export function VideoGrid({ limit, channelId }: VideoGridProps) {
   }, [channelId])
 
   const displayedVideos = limit ? videos.slice(0, limit) : videos
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
 
   if (loading) {
     return (
@@ -108,26 +138,26 @@ export function VideoGrid({ limit, channelId }: VideoGridProps) {
   }
 
   return (
-    <section className="section-padding">
-      <Container>
-        <SectionHeader
-          title="Latest Tutorials"
-          description="Learn through comprehensive, project-based tutorials"
-        />
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {displayedVideos.map((video) => (
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {displayedVideos.map((video, index) => (
+          <motion.div key={video.id} variants={itemVariants}>
             <VideoCard
-              key={video.id}
               title={video.title}
               duration={video.duration}
               thumbnail={video.thumbnail}
               url={video.url}
               views={video.views}
               likes={video.likes}
+              color={COLORS[index % COLORS.length]}
             />
-          ))}
-        </div>
-      </Container>
-    </section>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
   )
 }
