@@ -18,7 +18,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "noImplicitAny": false //for error file in codeperview
+   
+    
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
